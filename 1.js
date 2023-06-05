@@ -1,4 +1,4 @@
-//рекурсия
+//*рекурсия
 // function pow(x, n) {
 //     let result = 5;
   
@@ -13,7 +13,7 @@
 //   console.log( pow(2, 3) ); // 8
 
 
-//ввести данные в массив и записать их в файл
+//*ввести данные в массив и записать их в файл
 // let fs = require('fs')
 
 // array = []
@@ -33,7 +33,7 @@
 // });
 
 
-//записать рандомные значения в массив и записать их в файл
+//*записать рандомные значения в массив и записать их в файл
 // const fs = require('fs');
 // array = []
 // function arr(array) {
@@ -46,4 +46,21 @@
 //     console.log('сделано епт');
 // });
 
-console.log("ff")
+
+//*заполнить массив через время
+// let array = [0];
+// setTimeout(() => {
+    
+//     array.forEach(e => {
+//         // for(let i = 1; i < 10; i++){
+//         //     array.push(Math.round(Math.random() * 100))
+//         // }
+
+//         while(array.length < 100){
+//             array.push(Math.round(Math.random() * 100))
+//             array[0] = Math.round(Math.random() * 100)
+//         }
+//     });
+//     console.log(array);
+// }, 4000);
+
