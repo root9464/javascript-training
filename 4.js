@@ -106,3 +106,40 @@
 
 
 
+// let user = {
+//     name: "",
+//     surname: "",
+  
+//     get fullName() {
+//       return `${this.name} ${this.surname}`;
+//     },
+  
+//     set fullName(value) {
+//       [this.name, this.surname] = value.split(" ");
+//     }
+//   };
+  
+// // set fullName запустится с данным значением
+// user.fullName = "Alice Cooper";
+
+// console.log(user.fullName); // Alice
+
+
+// let user = {
+//     name: "",
+//     surname: ""
+//   };
+  
+//   Object.defineProperty(user, 'fullName', {
+//     get() {
+//       return `${this.name} ${this.surname}`;
+//     },
+  
+//     set(value) {
+//       [this.name, this.surname] = value.split(" ");
+//     }
+//   });
+// user.fullName = "Alice Smith"
+// console.log(user.fullName, user); // John Smith
+
+// for(let key in user) console.log(key); // name, surname
