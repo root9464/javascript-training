@@ -152,3 +152,113 @@
 //     }
 // };
 // console.log(log)
+
+
+// function animal(){}
+// console.log(animal.prototype.constructor == animal)
+
+// function FunctionAnimal(){}
+// let rabbit = new FunctionAnimal()
+
+// console.log(rabbit.constructor == FunctionAnimal)
+
+
+// function FullName(name, surname) {
+//     this.name = name
+//     this.surname = surname
+//     return `${name} ${surname}`
+// }
+// let user = new FullName("Егор", "Червоный")
+// let string = ""
+// for (let i in user) {
+//     string += `${user[i]} `
+// }
+
+// console.log(string)
+// console.log(typeof user, typeof string, typeof FullName,)
+
+// if (!String.prototype.repeat) { // Если такого метода нет
+//     // добавляем его в прототип
+  
+//     String.prototype.repeat = function(n) {
+//       // повторить строку n раз
+  
+//       // на самом деле код должен быть немного более сложным
+//       // (полный алгоритм можно найти в спецификации)
+//       // но даже неполный полифил зачастую достаточно хорош для использования
+//       return new Array(n + 1).join(this);
+//     };
+// }
+// console.log("La".repeat(5))
+// {
+//     !String.prototype.repeat? String.prototype.repeat = function(n) {return new Array(n + 1).join(this)} : console.log( "La".repeat(5))
+// }
+
+
+// let user = "Null"
+// {
+//     user == "User" ? user : user = undefined
+// }console.log(user)
+
+
+
+// let obj = {
+//     0: "Hello",
+//     1: "world!",
+//     length: 2,
+// };
+
+// obj.join = Array.prototype.join;
+
+// console.log( obj.join(',') ); // Hello,world!
+
+
+
+// const populations = {
+//     russia: 146780,
+//     ukraine: 42153,
+//     belarus: 9475
+// }
+// let ArrKey = new Array()
+// let ArrValue = new Array()
+// for (let [key, value] of Object.entries(populations)) {
+//     {
+//         key ? ArrKey.push(key) :ArrKey = undefined,
+//         value ? ArrValue.push(value) : ArrValue = undefined
+//     }
+// }
+// console.log(
+//     ArrKey,
+//     ArrValue,
+// )
+
+// const populations = {
+//     russia: 146780,
+//     ukraine: 42153,
+//     belarus: 9475
+// }
+// ArrKey = Object.keys(populations)
+// //и так далее))
+// console.log(ArrKey)
+
+
+////неизменяемый обьект (enum) который выдает при записи в него имя + фамилию в строку 
+//// и пользовательский созданный обьект (user) который копирует в себя значения и свойства enum'а и принимает имя и фамилию
+//// может изменяться 
+// const Enum = {
+//     name: '',
+//     surname: '',
+//     get fullName() {
+//         return `${this.name} ${this.surname}`;
+//     },
+    
+//     set fullName(value) {
+//         [this.name, this.surname] = value.split(" ");
+//     }
+// };
+
+// let user = Object.create(Enum);
+// user.fullName = "Егор Червоный";
+
+// console.log(user.fullName); // Alice
+// console.log(Enum)
