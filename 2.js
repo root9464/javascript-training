@@ -18,7 +18,7 @@
   
 //   }
 
-////промисы
+////Промисы, async/await
 // let promise = new Promise((resolve, reject) => {
 //     // задача, не требующая времени
 //     resolve("fff");

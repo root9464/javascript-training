@@ -359,9 +359,166 @@
 // )
 
 
+////важное пошло:
 
-// Итого:
-// Статические методы используются для функциональности, принадлежат классу «в целом», а не относятся к конкретному объекту класса.
-// Например, метод для сравнения двух статей Article.compare(article1, article2) или фабричный метод Article.createTodays().
-// В объявлении класса они помечаются ключевым словом static.
-// Статические свойства используются в тех случаях, когда мы хотели бы сохранить данные на уровне класса, а не какого-то одного объекта.
+// class CoffeeMachine{
+//     #waterAmount = 0;
+
+//     constructor(power){
+//         this.#power = power
+//         console.log(`создана кофемашина с мощностью: ${power}`)
+//     }
+
+
+//     set waterAmount(value){
+//         if (value < 0) throw new Error("Отрицательное количество воды");
+//         this.#waterAmount = value;
+//     }
+//     get waterAmount() {
+//         return this.#waterAmount;
+//     }
+// }
+
+// let machine = new CoffeeMachine(100)
+// CoffeeMachine.waterAmount = -200
+// CoffeeMachine.power = 25
+
+// class CoffeeMachine {
+//   #waterLimit = 200;
+
+//   #checkWater(value) {
+//     if (value < 0) throw new Error("Отрицательный уровень воды");
+//     if (value > this.#waterLimit) throw new Error("Слишком много воды");
+//   }
+// }
+
+// let coffeeMachine = new CoffeeMachine();
+
+// // снаружи  нет доступа к приватным методам класса
+// coffeeMachine.#checkWater(); // Error
+// coffeeMachine.#waterLimit = 1000; // Error
+
+// class PowerArray extends Array {
+//     isEmpty() {
+//         return this.length === 0;
+//     }
+//      // встроенные методы массива будут использовать этот метод как конструктор
+//     static get [Symbol.species]() {
+//         return Array;
+//     }
+// }
+// let arr = new PowerArray(1, 2, 5, 10, 50);
+// console.log(arr.isEmpty()); // false
+
+// // filter создаст новый массив, используя arr.constructor[Symbol.species] как конструктор
+// let filteredArr = arr.filter(item => item >= 10);
+
+// // filteredArr не является PowerArray, это Array
+// console.log(filteredArr.isEmpty()); // Error: filteredArr.isEmpty is not a function
+
+// let objectToString = Object.prototype.toString;
+
+// // какой это тип?
+
+// let arr = [];
+
+// console.log( objectToString.call(arr) ); // [object Array]
+
+// let sayHiMixin = {
+//     say(){
+//         console.log(`Привет, ${this.name}`);
+//     },
+//     bye(){
+//         console.log(`Пока, ${this.name}`);
+//     }
+// }
+// class User{
+//     constructor(name){
+//         this.name = name;
+//     }
+// }
+// Object.assign(User.prototype, sayHiMixin)
+// let user1 = new User("Артем").say();
+
+// let person = {
+//     greet(){
+//         super.greet(); 
+//     }
+// };
+
+// Object.setPrototypeOf(person, {
+//     greet: function(){ console.log("Prototype method"); }
+// });
+
+// person.greet();
+
+// let A = {
+//     run() {
+//       console.log('A runs');
+//     }
+// };
+
+// let B = {
+//     run() {
+//         super.run();
+//     }
+// };
+
+// Object.setPrototypeOf(B, A);
+
+// B.run(); // A runs
+
+
+// let sayMixin = {
+//     say(phrase) {
+//         console.log(phrase);
+//     }
+// };
+
+// let sayHiMixin = {
+//     __proto__: sayMixin, // (или мы можем использовать Object.create для задания прототипа) я хз как это сделать блять!
+
+//     sayHi() {
+//         // вызываем метод родителя
+//         super.say(`Привет, ${this.name}`); // (*)
+//     },
+//     sayBye() {
+//         super.say(`Пока, ${this.name}`); // (*)
+//     }
+//     };
+
+// class User {
+//     constructor(name) {
+//         this.name = name;
+//     }
+// }
+
+// // копируем методы
+// Object.assign(User.prototype, sayHiMixin);
+
+// // теперь User может сказать Привет
+// new User("Вася").sayHi(); // Привет, Вася!
+
+// let sayMixin = {
+//     say(phrase) {
+//       console.log(phrase);
+//     }
+// };
+
+// let sayHiMixin = Object.create(sayMixin);
+
+// sayHiMixin.sayHi = function() {
+//     sayMixin.say(`Hey ${this.name}`);
+// }
+  
+// class User {
+//     constructor(name) {
+//         this.name = name;
+//     }
+// }
+
+// // копируем методы
+// Object.assign(User.prototype, sayHiMixin);
+
+// // теперь User может сказать Привет
+// new User("Вася").sayHi(); // Привет, Вася!
