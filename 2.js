@@ -72,10 +72,10 @@
 //   }).finally(() => log("Промис завершён")) // срабатывает первым
 //     .then(result => log(result), log(err)); // <-- .then показывает "value"
 
+
+
 // async function hello(){ return 'Hello' }
 // console.log(hello());
-
-
 
 // async function hello(){
 //     let promise = new Promise((resolve, reject) => {
