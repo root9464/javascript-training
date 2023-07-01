@@ -7,4 +7,4 @@ function createdFile(a,b) { //создание файлов циклично
             console.log('готово епта');});
     };
 }
-createdFile(4,8)
+createdFile(11,13)
